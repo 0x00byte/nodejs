@@ -5,9 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// App Routes (Index, Users, Events, Offers, Countries)
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var users = require('./routes/events');
+var events = require('./routes/events');
+var offers = require('./routes/offers');
+var countries = require('./routes/countries');
 
 // Database
 var mongo = require('mongoskin');
@@ -36,6 +39,8 @@ app.use(function(req,res,next){
 app.use('/', routes);
 app.use('/users', users);
 app.use('/events', events);
+app.use('/offers', offers);
+app.use('/countries', countries);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
