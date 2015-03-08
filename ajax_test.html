@@ -4,7 +4,7 @@
 <script type="application/javascript">
 function loadJSON()
 {
-   var data_file = "http://localhost:3000/events";
+   var data_file = "http://api.geonames.org/countryInfoJSON?username=demo";
    var http_request = new XMLHttpRequest();
    try{
       // Opera 8.0+, Firefox, Chrome, Safari
@@ -31,17 +31,23 @@ function loadJSON()
 
         // jsonObj variable now contains the data structure and can
         // be accessed as jsonObj.name and jsonObj.country.
-        document.getElementById("Main").innerHTML =  jsonObj;
+
+        var div = document.getElementById("Main");
+
+		for (i = 0; i < jsonObj.geonames.length; i++) {
+		    div.innerHTML = div.innerHTML + " " + [i] + ") " + jsonObj.geonames[i].countryName + ", " + jsonObj.geonames[i].continent + ".";
+		}
+
       }
    }
    http_request.open("GET", data_file, true);
    http_request.send();
 }
 </script>
-<title>tutorialspoint.com JSON</title>
+<title>Countries</title>
 </head>
 <body>
-<h1>Cricketer Details</h1>
+<h1>Countries</h1>
 <div id="Main"></div>
 
 <div class="central">
