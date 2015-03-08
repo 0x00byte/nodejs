@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var events = require('./routes/events');
+var users = require('./routes/events');
 
 // Database
 var mongo = require('mongoskin');
